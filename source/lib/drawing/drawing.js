@@ -82,6 +82,11 @@ class Drawing {
             if (from === undefined || to === undefined) {
                 throw new TypeError('twoCellAnchor requires both from and two markers');
             }
+            this.editAs = 'twoCell';
+        } else if(type === 'oneCellAnchor'){
+            if (from === undefined) {
+                throw new TypeError('oneCellAnchor requires from marker');
+            }
             this.editAs = 'oneCell';
         }
         this.anchorType = type;

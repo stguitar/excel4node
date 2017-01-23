@@ -55,7 +55,11 @@ test('Test adding images', (t) => {
 
     let pics = ws.drawingCollection.drawings;
     t.ok(pics[0] instanceof Picture && pics[1] instanceof Picture && pics[2] instanceof Picture, '3 new picture successfully created');
-    
+
+    t.ok(pics[0].editAs === null, 'Absolute Anchor Images should not have the editAs setting');
+    t.ok(pics[1].editAs === 'oneCell', 'OneCell Anchor Images should have the editAs setting equals "oneCell"');
+    t.ok(pics[2].editAs === 'twoCell', 'TwoCell Anchor Images should have the editAs setting equals "twoCell"');
+
     try {
         ws.addImage({
             path: path.resolve(__dirname, '../sampleFiles/logo.png'),
